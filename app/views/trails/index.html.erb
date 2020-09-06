@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
+      <th>Looking for a new trail? Check out these options!</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +13,10 @@
   <tbody>
     <% @trails.each do |trail| %>
       <tr>
-        <td><%= trail.title %></td>
-        <td><%= trail.body %></td>
+        <td><%= trail.name %></td>
+        <td><%= trail.type %></td>
+        <td><%= trail.length %></td>
+        <td><%= trail.description %></td>
         <td><%= link_to 'Show', trail %></td>
         <td><%= link_to 'Edit', edit_trail_path(trail) %></td>
         <td><%= link_to 'Destroy', trail, method: :delete, data: { confirm: 'Are you sure?' } %></td>

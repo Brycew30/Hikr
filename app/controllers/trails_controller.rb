@@ -1,5 +1,5 @@
 class TrailsController < ApplicationController
-  before_action :set_trail, only: [:show, :edit, :update, :destroy]
+  # before_action :set_trail, only: [:show, :edit, :update, :destroy]
 
   # GET /trails
   # GET /trails.json
