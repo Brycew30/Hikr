@@ -5,9 +5,10 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :type %>
+    <%= f.input :path_type %>
     <%= f.input :length %>
     <%= f.input :description %>
+    <%= f.input :location, collection: @locations %>
   </div>
 
   <div class="form-actions">

@@ -35,6 +35,7 @@ class TrailsController < ApplicationController
         format.json { render json: @trail.errors, status: :unprocessable_entity }
       end
     end
+    raise params.inspect
   end
 
   # PATCH/PUT /trails/1
@@ -69,6 +70,10 @@ class TrailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trail_params
-      params.require(:trail).permit(:name, :type, :length, :description, :location_id)
+      params.require(:trail).permit(:name, :path_type, :length, :description, location_attributes: [:name])
+    end
+
+    def locations
+      @locations = Locations.all
     end
 end
