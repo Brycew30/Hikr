@@ -1,11 +1,13 @@
 
-<%= simple_form_for(@post) do |f| %>
+<%= simple_form_for(@trail) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :body %>
+    <%= f.input :name %>
+    <%= f.input :type %>
+    <%= f.input :length %>
+    <%= f.input :description %>
   </div>
 
   <div class="form-actions">

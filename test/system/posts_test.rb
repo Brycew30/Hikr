@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class trailsTest < ApplicationSystemTestCase
   setup do
-    @post = trails(:one)
+    @trail = trails(:one)
   end
 
   test "visiting the index" do
@@ -10,36 +10,36 @@ class trailsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "trails"
   end
 
-  test "creating a Post" do
+  test "creating a Trail" do
     visit trails_url
-    click_on "New Post"
+    click_on "New Trail"
 
-    fill_in "Body", with: @post.body
-    fill_in "Title", with: @post.title
-    click_on "Create Post"
+    fill_in "Body", with: @trail.body
+    fill_in "Title", with: @trail.title
+    click_on "Create Trail"
 
-    assert_text "Post was successfully created"
+    assert_text "Trail was successfully created"
     click_on "Back"
   end
 
-  test "updating a Post" do
+  test "updating a Trail" do
     visit trails_url
     click_on "Edit", match: :first
 
-    fill_in "Body", with: @post.body
-    fill_in "Title", with: @post.title
-    click_on "Update Post"
+    fill_in "Body", with: @trail.body
+    fill_in "Title", with: @trail.title
+    click_on "Update Trail"
 
-    assert_text "Post was successfully updated"
+    assert_text "Trail was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Post" do
+  test "destroying a Trail" do
     visit trails_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Post was successfully destroyed"
+    assert_text "Trail was successfully destroyed"
   end
 end
