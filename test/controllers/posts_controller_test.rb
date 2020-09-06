@@ -1,12 +1,12 @@
 require 'test_helper'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
+class trailsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @post = posts(:one)
+    @post = trails(:one)
   end
 
   test "should get index" do
-    get posts_url
+    get trails_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post" do
     assert_difference('Post.count') do
-      post posts_url, params: { post: { body: @post.body, title: @post.title } }
+      post trails_url, params: { post: { body: @post.body, title: @post.title } }
     end
 
     assert_redirected_to post_url(Post.last)
@@ -43,6 +43,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       delete post_url(@post)
     end
 
-    assert_redirected_to posts_url
+    assert_redirected_to trails_url
   end
 end

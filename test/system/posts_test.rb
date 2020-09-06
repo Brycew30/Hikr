@@ -1,17 +1,17 @@
 require "application_system_test_case"
 
-class PostsTest < ApplicationSystemTestCase
+class trailsTest < ApplicationSystemTestCase
   setup do
-    @post = posts(:one)
+    @post = trails(:one)
   end
 
   test "visiting the index" do
-    visit posts_url
-    assert_selector "h1", text: "Posts"
+    visit trails_url
+    assert_selector "h1", text: "trails"
   end
 
   test "creating a Post" do
-    visit posts_url
+    visit trails_url
     click_on "New Post"
 
     fill_in "Body", with: @post.body
@@ -23,7 +23,7 @@ class PostsTest < ApplicationSystemTestCase
   end
 
   test "updating a Post" do
-    visit posts_url
+    visit trails_url
     click_on "Edit", match: :first
 
     fill_in "Body", with: @post.body
@@ -35,7 +35,7 @@ class PostsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Post" do
-    visit posts_url
+    visit trails_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
