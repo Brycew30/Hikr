@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "trails", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "path_type"
     t.string "length"
     t.text "description"
     t.integer "location_id", null: false
