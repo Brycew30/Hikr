@@ -35,7 +35,6 @@ class TrailsController < ApplicationController
         format.json { render json: @trail.errors, status: :unprocessable_entity }
       end
     end
-    raise params.inspect
   end
 
   # PATCH/PUT /trails/1
