@@ -1,11 +1,20 @@
 class ApplicationController < ActionController::Base
+  helper_method :current_user, :logged_in?
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   def home
+    require_login
   end
 
   def welcome
     redirect_to home_path if user_signed_in?
+  end
+
+  def require_login
+    unless user_signed_in?
+      flash[:message] = "You need to be logged in to see this section."
+      redirect_to root_path
+    end
   end
     protected
     def configure_permitted_parameters
