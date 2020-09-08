@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h1>The Trail</h1>
+<h2><%= @trail.name %></h2>
+<h3><b>Trail Type: </b><%= @trail.path_type %></h3>
+<h3><b>Length: </b><%= @trail.length %></h3>
+<p><b>Description: </b><%= @trail.description</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @trail.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @trail.body %>
-</p>
+<% if @trail.reviews.present? %>
+  <%= link_to "Reviews for this trails", trail_reviews_path(@trail) %><br>
+<% end %>
+<%= link_to "Add Review", new_trail_review_path(@trail) %>
 
 <%= link_to 'Edit', edit_trail_path(@trail) %> |
 <%= link_to 'Back', trails_path %>
