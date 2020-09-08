@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :trails
+  resources :trails do
+    resources :reviews, only: [:new, :show, :index]
+  end
+  resources :reviews
+  resources :locations
   root to: 'application#home'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
