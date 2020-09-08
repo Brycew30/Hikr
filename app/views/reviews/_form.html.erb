@@ -4,8 +4,8 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :trail %>
-    <%= f.input :stars, as: :numeric, input_html: {min: '0', max: '10'} %>
+    <%= f.association :trail, label: "Select a Trail" %>
+    <%= f.input :stars, as: :numeric, input_html: {min: '0', max: '10'}, placeholder: "5" %>
     <%= f.input :title, placeholder: "Kicked my butt!" %>
     <%= f.input :content, placeholder: "Here's what I liked..." %>
   </div>
