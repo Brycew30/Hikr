@@ -1,0 +1,7 @@
+<% if @trail %>
+  <h2>Add Review to <%= @trail.name %></h2>
+<% else %>
+  <h2>Add Review!</h2>
+<% end %>
+
+<%= render 'form' %>
