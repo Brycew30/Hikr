@@ -15,7 +15,7 @@
     <%= link_to "Add Review", new_trail_review_path(@trail) %>
     <% end %>
 <% else %>
-<h1>See All Reviews!</h1>
+<h2>All Trail Reviews!</h2>
   <% @trails.each do |t| %>
     <% if t.reviews.present? %>
     <ul>
