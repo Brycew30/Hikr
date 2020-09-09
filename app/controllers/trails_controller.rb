@@ -1,5 +1,6 @@
 class TrailsController < ApplicationController
   before_action :require_login
+  before_action :set_trail, only: [:show, :edit, :update, :destroy]
   # GET /trails
   # GET /trails.json
   def index
@@ -9,7 +10,6 @@ class TrailsController < ApplicationController
   # GET /trails/1
   # GET /trails/1.json
   def show
-    set_trail
   end
 
   # GET /trails/new
@@ -20,7 +20,6 @@ class TrailsController < ApplicationController
 
   # GET /trails/1/edit
   def edit
-    set_trail
     locations
   end
 
@@ -44,7 +43,6 @@ class TrailsController < ApplicationController
   # PATCH/PUT /trails/1
   # PATCH/PUT /trails/1.json
   def update
-    set_trail
     locations
     respond_to do |format|
       if @trail.update(trail_params)
@@ -60,7 +58,6 @@ class TrailsController < ApplicationController
   # DELETE /trails/1
   # DELETE /trails/1.json
   def destroy
-    set_trail
     @trail.destroy
     respond_to do |format|
       format.html { redirect_to trails_url, notice: 'Trail was successfully destroyed.' }
