@@ -3,7 +3,7 @@ class TrailsController < ApplicationController
   # GET /trails
   # GET /trails.json
   def index
-    @trails = Trail.all
+    @trails = Trail.all.alphabetical_order
   end
 
   # GET /trails/1

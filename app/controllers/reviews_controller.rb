@@ -88,7 +88,7 @@ class ReviewsController < ApplicationController
   end
 
   def all_trails
-    @trails = Trail.all
+    @trails = Trail.all.alphabetical_order
   end
 
   def save_review
