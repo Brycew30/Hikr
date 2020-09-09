@@ -19,7 +19,7 @@
 <h2>All Trail Reviews!</h2>
   <% @trails.each do |t| %>
     <% if t.reviews.present? %>
-    <ul>
+    <ul style="list-style: none;">
       <% t.reviews.each do |r| %>
         <li><h4><%= link_to r.trail.name, review_path(r) %> - <%= r.title %> - <%= pluralize(r.stars, "star") %></h4></li>
         <p><%= r.content %></p>
