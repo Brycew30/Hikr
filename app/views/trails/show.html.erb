@@ -1,13 +1,16 @@
-<h1>The Trail</h1>
-<h2><%= @trail.name %></h2>
-<h3><b>Trail Type: </b><%= @trail.path_type %></h3>
-<h3><b>Length: </b><%= @trail.length %></h3>
-<p><b>Description: </b><%= @trail.description</p>
+<h2><u>The Trail:</u></h2>
+<br>
+<h3><strong><%= @trail.name %></strong></h3>
+<h4><strong>Trail Type: </strong><%= @trail.path_type %></h4>
+<h4><strong>Length: </strong><%= @trail.length %></h4>
+<h4><strong>Location: </strong><%= @trail.location.name %></h4>
+<h5><strong>Description: </strong><%= @trail.description %></h5><br>
 
 <% if @trail.reviews.present? %>
-  <%= link_to "Reviews for this trails", trail_reviews_path(@trail) %><br>
+  <%= link_to "See reviews for this trail", trail_reviews_path(@trail), class: "btn btn-outline-secondary" %><br>
 <% end %>
-<%= link_to "Add Review", new_trail_review_path(@trail) %>
-
-<%= link_to 'Edit', edit_trail_path(@trail) %> |
-<%= link_to 'Back', trails_path %>
+<br>
+<%= link_to 'Edit Trail', edit_trail_path(@trail), class: "btn btn-outline-info btn-sm" %> &nbsp;
+<%= link_to "Add Review", new_trail_review_path(@trail), class: "btn btn-outline-success" %><br>
+<br>
+<%= link_to 'Back', trails_path, class: "btn btn-outline-primary btn-sm" %>
