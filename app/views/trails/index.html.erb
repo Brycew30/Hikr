@@ -1,4 +1,9 @@
 <h2>Check out these trail options, or add one to the list!</h2>
+  <%= form_tag("/search", method: "GET") do %>
+    <strong><%= label_tag :query, "Search for a trail:" %></strong>
+    <%= text_field_tag :query, "", class:"form-control" %>
+    <%= submit_tag "Search", class: "btn btn-secondary btn-sm" %>
+  <% end %>
 <%= link_to 'New Trail', new_trail_path, class: "btn btn-outline-info btn-sm"%><br>
 <br>
 <dl>

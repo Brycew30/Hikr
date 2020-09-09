@@ -8,4 +8,6 @@ class Trail < ApplicationRecord
   validates :length, presence: true
   validates :description, presence: true
   validates :location, presence: true
+
+  scope :search, -> (query) {where("name LIKE ?", "%" + query + "%") }
 end
