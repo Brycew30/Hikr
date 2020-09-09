@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+
+  before_action :require_login
+
   def index
     if find_trail
       @review = @trail.reviews.all
