@@ -17,6 +17,8 @@
     <% end %>
 <% else %>
 <h2>All Trail Reviews!</h2>
+<%= link_to 'New Review', new_review_path, class: "btn btn-outline-info btn-sm"%><br>
+<br>
   <% @trails.each do |t| %>
     <% if t.reviews.present? %>
     <ul style="list-style: none;">
