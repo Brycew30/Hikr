@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :show, :index]
   end
   resources :reviews
-  resources :locations
+  get '/locations' to: 'application#welcome'
   root to: 'application#welcome'
   get 'home', to: 'application#home'
   devise_for :users
