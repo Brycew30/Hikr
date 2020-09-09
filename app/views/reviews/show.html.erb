@@ -1,13 +1,13 @@
-<h1>The Review:</h1>
-<h2><%= @review.trail.name %></h2>
-<h3><%= @review.title %></h3>
-<h3><%= pluralize(@review.stars, "star") %></h3>
+<%= link_to "See the Trail", trail_path(@review.trail), class: "btn btn-outline-secondary btn-sm" %><br>
+<br>
+<h2><u>The Review:</u></h2>
+<br>
+<h3><strong><%= @review.trail.name %></strong></h3>
+<h4><%= @review.title %></h4>
+<h4><%= pluralize(@review.stars, "star") %></h4>
 <p><%= @review.content %></p>
 
-<%= link_to "The Trail", trail_path(@review.trail) %><br>
-<%= link_to "Reviews for this Trail", trail_reviews_path(@review.trail) %><br>
-<%= link_to "Add Review", new_trail_review_path(@review.trail) %><br>
-<%= link_to "Edit Review", edit_review_path(@review) %><br>
-<%= button_to "Delete Review", review_path(@review), method: :delete %>
-
-<%= link_to 'Back', trails_path %>
+<%= link_to "See all Reviews for this Trail", trail_reviews_path(@review.trail), class:"btn btn-outline-dark btn-sm" %><br>
+<br>
+<%= link_to "Edit", edit_review_path(@review), class: "btn btn-outline-info btn-sm" %> &nbsp;
+<%= link_to "Delete", review_path(@review), method: :delete, class: "btn btn-outline-danger btn-sm" %>
