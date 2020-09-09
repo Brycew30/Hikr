@@ -1,5 +1,6 @@
 <h2>Check out these trail options, or add one to the list!</h2>
-<h5><%= link_to 'New Trail', new_trail_path %></h5>
+<%= link_to 'New Trail', new_trail_path, class: "btn btn-outline-info"%><br>
+<br>
 <dl>
   <% @trails.each do |trail| %>
     <dt><h4><strong><%= link_to trail.name, trail_path(trail) %> </strong></h4></dt>
