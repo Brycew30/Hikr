@@ -1,9 +1,8 @@
 <h2>Check out these trail options, or add one to the list!</h2>
-<%= link_to 'New Trail', new_trail_path %>
-<ul>
+<h5><%= link_to 'New Trail', new_trail_path %></h5>
+<dl>
   <% @trails.each do |trail| %>
-    <li><%= link_to trail.name, trail_path(trail) %> in <%= trail.location %> - <%= trail.length %><br></li>
-      <td><%= link_to 'Edit', edit_trail_path(trail) %></td>
-      <td><%= link_to 'Destroy', trail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <dt><h4><strong><%= link_to trail.name, trail_path(trail) %> </strong></h4></dt>
+    <dd><h6> &nbsp; <%= trail.length %> miles in <%= trail.location.name %> </h6></dd><br>
   <% end %>
-</ul>
+</dl>
