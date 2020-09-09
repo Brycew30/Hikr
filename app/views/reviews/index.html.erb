@@ -1,15 +1,16 @@
 <% if @trail %>
-  <h1><%= @trail.name %></h1>
-    <h2>Location: <%= @trail.location.name %></h2>
-    <% if @reviews.present? %>
-      <ul>
-        <h3>Reviews:</h3><br>
-        <% @reviews.each do |r| %>
-        <li><h4><%= r.title %> - <%= pluralize(r.stars, "star") %></h4></li>
-        <p><%= r.content %></p>
-    <% end %>
+  <h2><strong><%= @trail.name %></strong></h2>
+  <h5><strong>Location: </strong><%= @trail.location.name %></h5>
+  <%= link_to "Add Review", new_trail_review_path(@trail), class: "btn btn-outline-secondary" %><br>
+  <br>
+  <% if @reviews.present? %>
+    <ul style="list-style: none;">
+      <h4><u>Reviews:</u></h4><br>
+      <% @reviews.each do |r| %>
+      <li><h4><strong><%= r.title %></strong> - <%= pluralize(r.stars, "star") %></h4></li>
+      <h5><%= r.content %></h5>
+  <% end %>
       </ul><br>
-      <%= link_to "Add Review", new_trail_review_path(@trail) %>
     <% else %>
     <p>Add the first review for this route.</p>
     <%= link_to "Add Review", new_trail_review_path(@trail) %>
