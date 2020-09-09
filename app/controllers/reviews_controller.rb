@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
 
   before_action :require_login
+  # before_action :find_review, only: [:show, :edit, :update, :destroy]
 
   def index
     if find_trail
-      @review = @trail.reviews.all
+      @reviews = @trail.reviews.all
     else
       all_trails
       @reviews = Review.all
@@ -69,6 +70,10 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:stars, :title, :content, :trail_id)
   end
+
+  # def find_review
+  #   @review = Review.find_by(id: params[:id])
+  # end
 
   def find_trail
     @trail = Trail.find_by_id(params[:trail_id])
