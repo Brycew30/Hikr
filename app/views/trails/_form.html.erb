@@ -8,7 +8,7 @@
     <%= f.input :path_type, placeholder: "Paved road" %>
     <%= f.input :length, placeholder: "3", hint: "In miles" %>
     <%= f.input :description, placeholder: "Flat and happy..." %>
-    <%= f.input :location, placeholder: "Nashville, TN" %>
+    <%= f.input :location, collection: @locations, :include_blank => "Choose a state" %>
   </div>
 
   <div class="form-actions">
