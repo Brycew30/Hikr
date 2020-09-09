@@ -1,7 +1,7 @@
 <% if @trail %>
   <h2><strong><%= @trail.name %></strong></h2>
   <h5><strong>Location: </strong><%= @trail.location.name %></h5>
-  <%= link_to "Add Review", new_trail_review_path(@trail), class: "btn btn-outline-secondary" %><br>
+  <%= link_to "Add Review", new_trail_review_path(@trail), class: "btn btn-outline-success btn-sm" %><br>
   <br>
   <% if @reviews.present? %>
     <ul style="list-style: none;">
