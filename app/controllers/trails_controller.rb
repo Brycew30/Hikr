@@ -20,6 +20,8 @@ class TrailsController < ApplicationController
 
   # GET /trails/1/edit
   def edit
+    set_trail
+    locations
   end
 
   # POST /trails
@@ -42,6 +44,8 @@ class TrailsController < ApplicationController
   # PATCH/PUT /trails/1
   # PATCH/PUT /trails/1.json
   def update
+    set_trail
+    locations
     respond_to do |format|
       if @trail.update(trail_params)
         format.html { redirect_to @trail, notice: 'Trail was successfully updated.' }
@@ -56,6 +60,7 @@ class TrailsController < ApplicationController
   # DELETE /trails/1
   # DELETE /trails/1.json
   def destroy
+    set_trail
     @trail.destroy
     respond_to do |format|
       format.html { redirect_to trails_url, notice: 'Trail was successfully destroyed.' }
@@ -71,7 +76,7 @@ class TrailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trail_params
-      params.require(:trail).permit(:name, :path_type, :length, :description, :location_id, location_attributes: [:name])
+      params.require(:trail).permit(:name, :path_type, :length, :description, :location_id)
     end
 
     def locations
