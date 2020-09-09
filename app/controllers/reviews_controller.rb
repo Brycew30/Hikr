@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
 
   before_action :require_login
-  # before_action :find_review, only: [:show, :edit, :update, :destroy]
+  before_action :find_review, only: [:show, :edit, :update, :destroy]
+  before_action :belongs_to_current_user, only: [:edit, :update, :destroy]
 
   def index
     if find_trail
@@ -33,16 +34,16 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    unless !(@review == nil)
-      redirect_to reviews_path
-    end
+    # find_review
   end
 
   def edit
     all_trails
+    # find_review
   end
 
   def update
+    # find_review
     if review_params.present? && review_params[:trail_id].present?
       @review.update(review_params)
       save_review
@@ -71,9 +72,16 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:stars, :title, :content, :trail_id)
   end
 
-  # def find_review
-  #   @review = Review.find_by(id: params[:id])
-  # end
+  def find_review
+    @review = Review.find_by(id: params[:id])
+  end
+
+  def belongs_to_current_user
+    unless @review.user_id == current_user.id
+      flash[:error] = "You can't change someone else's review!"
+      redirect_to review_path(@review)
+    end
+  end
 
   def find_trail
     @trail = Trail.find_by_id(params[:trail_id])
