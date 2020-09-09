@@ -1,6 +1,5 @@
 class TrailsController < ApplicationController
-  # before_action :set_trail, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   # GET /trails
   # GET /trails.json
   def index
@@ -10,11 +9,13 @@ class TrailsController < ApplicationController
   # GET /trails/1
   # GET /trails/1.json
   def show
+    set_trail
   end
 
   # GET /trails/new
   def new
     @trail = Trail.new
+    locations
   end
 
   # GET /trails/1/edit
@@ -25,7 +26,7 @@ class TrailsController < ApplicationController
   # POST /trails.json
   def create
     @trail = Trail.new(trail_params)
-
+    locations
     respond_to do |format|
       if @trail.save
         format.html { redirect_to @trail, notice: 'Trail was successfully created.' }
@@ -35,6 +36,7 @@ class TrailsController < ApplicationController
         format.json { render json: @trail.errors, status: :unprocessable_entity }
       end
     end
+    # raise params.inspect
   end
 
   # PATCH/PUT /trails/1
@@ -69,10 +71,10 @@ class TrailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trail_params
-      params.require(:trail).permit(:name, :path_type, :length, :description, location_attributes: [:name])
+      params.require(:trail).permit(:name, :path_type, :length, :description, :location_id, location_attributes: [:name])
     end
 
     def locations
-      @locations = Locations.all
+      @locations = Location.all
     end
 end
