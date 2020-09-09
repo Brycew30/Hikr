@@ -8,7 +8,7 @@
       <h4><u>Reviews:</u></h4><br>
       <% @reviews.each do |r| %>
       <li><h4><strong><%= r.title %></strong> - <%= pluralize(r.stars, "star") %></h4></li>
-      <h5><%= r.content %></h5>
+      <h5><%= r.content %></h5><br>
   <% end %>
       </ul><br>
     <% else %>
