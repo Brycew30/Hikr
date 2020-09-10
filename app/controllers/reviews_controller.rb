@@ -34,16 +34,13 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    # find_review
   end
 
   def edit
     all_trails
-    # find_review
   end
 
   def update
-    # find_review
     if review_params.present? && review_params[:trail_id].present?
       @review.update(review_params)
       save_review
