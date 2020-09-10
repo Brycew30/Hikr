@@ -1,12 +1,14 @@
-<h1>Welcome back, <%= current_user.username %>!</h1>
-<h2>What's on the agenda today?</h2>
-<h3>Trails:</h3>
-<ul>
-  <li><%= link_to "See all trails", trails_path %></li>
-  <li><%= link_to "Add a new trail", new_trail_path %></li>
-</ul>
-<h3>Reviews:</h3>
-<ul>
-  <li><%= link_to "See all reviews", reviews_path %></li>
-  <li><%= link_to "Add a new review", new_review_path %></li>
-</ul>
+<h2>Welcome back, <%= current_user.username %>!</h2><br>
+<div class="col-md-8 offset-md-2">
+  <h2>What's on the agenda today?</h2><br>
+  <h3>Trails:</h3>
+  <ul>
+    <li><%= link_to "See all trails", trails_path %></li>
+    <li><%= link_to "Add a new trail", new_trail_path %></li>
+  </ul>
+  <h3>Reviews:</h3>
+  <ul>
+    <li><%= link_to "See all reviews", reviews_path %></li>
+    <li><%= link_to "Add a new review", new_review_path %></li>
+  </ul>
+</div>
