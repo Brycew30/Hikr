@@ -9,5 +9,7 @@
 
 <%= link_to "See all Reviews for this Trail", trail_reviews_path(@review.trail), class:"btn btn-outline-dark btn-sm" %><br>
 <br>
-<%= link_to "Edit", edit_review_path(@review), class: "btn btn-outline-info btn-sm" %> &nbsp;
-<%= link_to "Delete", review_path(@review), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+<% if @review.user_id == current_user.id %>
+  <%= link_to "Edit", edit_review_path(@review), class: "btn btn-outline-info btn-sm" %> &nbsp;
+  <%= link_to "Delete", review_path(@review), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+<% end %>
