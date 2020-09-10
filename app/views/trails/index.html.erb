@@ -1,14 +1,21 @@
 <h2>Check out these trail options, or add one to the list!</h2>
-  <%= form_tag("/search", method: "GET") do %>
-    <strong><%= label_tag :query, "Search for a trail:" %></strong>
-    <%= text_field_tag :query, "", class:"form-control" %>
-    <%= submit_tag "Search", class: "btn btn-secondary btn-sm" %>
-  <% end %>
-<%= link_to 'New Trail', new_trail_path, class: "btn btn-outline-info btn-sm"%><br>
+<div class="form-inline d-flex justify-content-left md-form form-sm mt-0">
+  <div class="p-2">
+    <%= form_tag("/search", method: "GET") do %>
+      <% label_tag :query %>
+      <%= text_field_tag :query, "", class:"form-control", placeholder: "Search" %>
+      <%= submit_tag "Search", class: "btn btn-secondary btn-sm" %>
+    <% end %>
+  </div>
+
+</div>
 <br>
-<dl>
-  <% @trails.each do |trail| %>
-    <dt><h4><strong><%= link_to trail.name, trail_path(trail) %> </strong></h4></dt>
-    <dd><h6> &nbsp; <%= trail.length %> miles in <%= trail.location.name %> </h6></dd><br>
-  <% end %>
-</dl>
+<div class="col-sm-2 text-center">
+  <dl>
+    <% @trails.each do |trail| %>
+      <dt><h4><strong><%= link_to trail.name, trail_path(trail) %> </strong></h4></dt>
+      <dd><h6> &nbsp; <%= trail.length %> miles in <%= trail.location.name %> </h6></dd><br>
+    <% end %>
+  </dl>
+</div>
+<div class="p-2"><%= link_to 'New Trail', new_trail_path, class: "btn btn-outline-info btn-sm"%><br></div>
