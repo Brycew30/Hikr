@@ -1,15 +1,15 @@
 class User < ApplicationRecord
   has_many :reviews
   has_many :trails, through: :reviews
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  validates :username, presence: true
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
+
+  # validates :username, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true
 
- validates :username, presence: true, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
         validate :validate_username
         attr_writer :login
 
@@ -29,4 +29,13 @@ class User < ApplicationRecord
                 where(conditions.to_h).first
             end
         end
+
+  def self.create_from_provider_data(provider_data)
+    where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
+      user.username = provider_data.info.name
+      user.email = provider_data.info.email
+      user.password = Devise.friendly_token[0, 20]
+    end
+  end
+
 end
