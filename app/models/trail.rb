@@ -10,9 +10,7 @@ class Trail < ApplicationRecord
   validates :location, presence: true
 
   scope :search, -> (query) {where("name LIKE ?", "%" + query + "%") }
+  scope :alphabetical_order, -> {order(:name)}
 
-  def self.alphabetical_order
-    order(:name)
-  end
-  
+
 end
