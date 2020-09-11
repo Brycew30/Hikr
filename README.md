@@ -1,24 +1,32 @@
-# README
+# Hikr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hikr is a great central location for people around the U.S. to see different hikes where they live or may be travelling to!
+Here, you'll find trail information, as well as reviews about other people's experiences on the trails!
 
-Things you may want to cover:
+## Getting Started
+To use Hikr, clone this repo and install the required gems:
+```
+bundle install
+```
+Next, migrate the database:
+```
+rake db:migrate
+```
+Then, seed the database:
+```
+rake db:seed
+```
+Finally, start up the rails server:
+```
+rails s
+```
+See you on the trail sometime!
 
-* Ruby version
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/Brycew30/Hikr. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/). Please read CONTRIBUTING.md for details.
 
-* System dependencies
+## License
+This project is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Additional Information
+This is my third portfolio project for Flatiron School's Software Engineering program.
