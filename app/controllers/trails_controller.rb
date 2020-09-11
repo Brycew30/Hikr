@@ -18,11 +18,6 @@ class TrailsController < ApplicationController
     locations
   end
 
-  # GET /trails/1/edit
-  # def edit
-  #   locations
-  # end
-
   # POST /trails
   # POST /trails.json
   def create
@@ -30,15 +25,13 @@ class TrailsController < ApplicationController
     locations
     respond_to do |format|
       if @trail.save
-        format.html { redirect_to @trail, notice: 'Trail was successfully created.' }
-        format.json { render :show, status: :created, location: @trail }
+        redirect_to @trail, notice: 'Trail was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @trail.errors, status: :unprocessable_entity }
+        render :new
       end
     end
-    # raise params.inspect
   end
+
 
   def search
     @trails = Trail.search(params[:query])
@@ -46,12 +39,11 @@ class TrailsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_trail
       @trail = Trail.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def trail_params
       params.require(:trail).permit(:name, :path_type, :length, :description, :location_id)
     end
