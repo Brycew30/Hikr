@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :trails, only: [:new, :show, :index] do
+  resources :trails, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:new, :show, :index]
   end
 
