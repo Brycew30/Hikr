@@ -23,15 +23,12 @@ class TrailsController < ApplicationController
   def create
     @trail = Trail.new(trail_params)
     locations
-    respond_to do |format|
-      if @trail.save
-        redirect_to @trail, notice: 'Trail was successfully created.'
-      else
-        render :new
-      end
+    if @trail.save
+      redirect_to @trail, notice: 'Trail was successfully created.'
+    else
+      render :new
     end
   end
-
 
   def search
     @trails = Trail.search(params[:query])
@@ -44,6 +41,7 @@ class TrailsController < ApplicationController
       @trail = Trail.find(params[:id])
     end
 
+    # Only allow a list of trusted parameters through.
     def trail_params
       params.require(:trail).permit(:name, :path_type, :length, :description, :location_id)
     end
