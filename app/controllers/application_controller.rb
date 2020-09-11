@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?
+  helper_method :current_user
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   def home
