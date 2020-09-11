@@ -5,10 +5,10 @@ class ReviewsController < ApplicationController
   before_action :belongs_to_current_user, only: [:edit, :update, :destroy]
 
   def index
-    if find_trail
+    if find_trail # /trails/1/reviews
       @reviews = @trail.reviews.all
     else
-      all_trails
+      all_trails # /reviews
       @reviews = Review.all
     end
   end
@@ -33,6 +33,7 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # /reviews/1
   def show
   end
 
