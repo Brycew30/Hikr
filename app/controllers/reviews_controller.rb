@@ -46,7 +46,7 @@ class ReviewsController < ApplicationController
       @review.update(review_params)
       save_review
     else
-      flash[:message] = "Please make sure you fill in all the necessary fields!"
+      flash[:error] = "Please make sure you fill in all the necessary fields!"
       all_trails
       render :edit
     end
@@ -58,7 +58,7 @@ class ReviewsController < ApplicationController
       flash[:message] = "Review successfully removed!"
       redirect_to reviews_path
     else
-      flash[:message] = "The review couldn't be removed."
+      flash[:error] = "The review couldn't be removed."
       redirect_to review_path(@review)
     end
   end
