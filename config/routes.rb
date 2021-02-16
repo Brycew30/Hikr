@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/locations', to: 'application#welcome'
 
+  get '/locations/:location_id/trails', to: 'trails#index'
+
   root to: 'application#welcome'
 
   get 'home', to: 'application#home'

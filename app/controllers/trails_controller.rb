@@ -4,7 +4,11 @@ class TrailsController < ApplicationController
   # GET /trails
   # GET /trails.json
   def index
-    @trails = Trail.all.alphabetical_order
+    if params[:location_id]
+      @trails = Trail.where(location_id: params[:location_id])
+    else
+      @trails = Trail.all.alphabetical_order
+    end
   end
 
   # GET /trails/1
